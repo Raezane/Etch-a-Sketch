@@ -1,0 +1,38 @@
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    text-align: center;
+}
+
+#optionsAndBoard {
+    display: flex;
+    flex-direction: row;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
+    margin-left: 250px;
+}
+
+.choices {
+    width: 100px;
+    height: 50px;
+}
+
+#maincontainer {
+    display: flex;
+    width: 600px;
+    height: 600px;
+    border-width: 3px;
+    border-style: solid;
+    margin-left: 200px;
+    flex-wrap: wrap;
+    
+}
