@@ -1,7 +1,5 @@
 body {
     margin: 0px;
-    display: flex;
-    flex-direction: column;
 }
 
 .header {
@@ -34,5 +32,6 @@ body {
     border-style: solid;
     margin-left: 200px;
     flex-wrap: wrap;
+    overflow: hidden;
     
 }
