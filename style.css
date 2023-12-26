@@ -9,6 +9,7 @@ body {
 #optionsAndBoard {
     display: flex;
     flex-direction: row;
+    
 }
 
 #options {
@@ -17,6 +18,10 @@ body {
     
     justify-content: space-evenly;
     margin-left: 250px;
+}
+
+.colorheader {
+    text-align: center;
 }
 
 .choices {

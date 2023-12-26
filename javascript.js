@@ -5,26 +5,44 @@ function main() {
   let number = 15;
   makeGrid(maincontainer, number);
 
+  const colorslct = document.querySelector('.colorslct');
+  colorslct.addEventListener('click', () => {
+    setColor(colorslct);
+  });
+
   const gridsize = document.querySelector('.gridsize');
   gridsize.addEventListener('click', () => {
     //empty the parentNode (maincontainer) from all child elements
     maincontainer.textContent = '';
     let userInput = howManyDivs();
     makeGrid(maincontainer, userInput);
+    setColor(colorslct);
   });
+  
 
   const randomise = document.querySelector('.randomise');
-  let getColors = randomColors()
+  let getColors = randomColor()
   randomise.addEventListener('click', () => {
-    setColor();
+    setRainbowColor();
     //looppi tähän kuten makeGridissä
   });
 
   const clear = document.querySelector('.clear');
   clear.addEventListener('click', () => {
     ClearGrid(maincontainer);
+    setColor(colorslct);
   });
-  
+
+};
+
+function setColor(colorvalue) {
+  let miniboxes = maincontainer.children;
+  for (let i = 0; i < miniboxes.length; i++) {
+    let MiniboxColor = miniboxes[i];
+    MiniboxColor.addEventListener('mouseover', () => {
+      MiniboxColor.style.backgroundColor = colorvalue.value;
+    });
+  };
 };
 
 
@@ -38,7 +56,6 @@ function makeGrid(maincontainer, number) {
       minibox.style.flexBasis = widthAndHeight;
       minibox.style.minHeight = widthAndHeight;
       minibox.addEventListener('mouseover', () => {
-
         minibox.style.backgroundColor = 'black';
       });
       
@@ -60,20 +77,13 @@ function howManyDivs() {
   };
 };
 
-function ClearGrid() {
-  let miniboxes = maincontainer.children;
-  for (let i = 0; i < miniboxes.length; i++) {
-    let clearMiniBox = miniboxes[i];
-    clearMiniBox.style.backgroundColor = 'white';
-  };
-};
+function setRainbowColor() {
 
-function setColor() {
 
   let miniboxes = maincontainer.children;
   for (let i = 0; i < miniboxes.length; i++) {
     let randomiseMiniboxColor = miniboxes[i];
-    let colorValues = randomColors()
+    let colorValues = randomColor()
     randomiseMiniboxColor.addEventListener('mouseover', () => {
       randomiseMiniboxColor.style.backgroundColor = 'rgb(' + [colorValues[0], colorValues[1], colorValues[2]].join(',') + ')';
   //return 'rgb(' + [colourList[0], colourList[1], colourList[2]].join(',') + ')';
@@ -81,7 +91,7 @@ function setColor() {
   };
 };
 
-function randomColors() {
+function randomColor() {
 
   let colors = [];
 
@@ -91,6 +101,14 @@ function randomColors() {
 
   colors.push(red, green, blue);
   return colors;
+};
 
-}
+function ClearGrid() {
+  let miniboxes = maincontainer.children;
+  for (let i = 0; i < miniboxes.length; i++) {
+    let clearMiniBox = miniboxes[i];
+    clearMiniBox.style.backgroundColor = 'white';
+  };
+};
+
 main();
