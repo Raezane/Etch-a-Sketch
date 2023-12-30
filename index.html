@@ -12,11 +12,16 @@
   <div id="optionsAndBoard">
     <div id="options">
       <div class="colorselector">
-        <p class="colorheader">Select a color</p>
+        <p class="colorheader">Select a color:</p>
         <input type="color" class="colorslct choices"></button>
       </div>
       <button class="gridsize choices">Grid Size</button>
-      <button class="randomise choices">Rainbow-effect</button>
+      <div class="toggler">
+        Shading<input type="checkbox" id="shadecheck"/>
+      </div>
+      <div class="rainbowselector">
+        Multicolor<input type="checkbox" id="rainbowcheck"/>
+      </div>
       <button class="clear choices">Clear</button>
     </div>
     <div id="maincontainer"></div>
