@@ -32,10 +32,13 @@ function setColor(colorValue, shadeValue, randomiseValue) {
   
   //check if mouse button is pressed, and then draw
   let mouseDown = 0;
-  document.body.onmousedown = function() {
+  maincontainer.onmousedown = function() {
     mouseDown = 1;
   };
-  document.body.onmouseup = function() {
+  maincontainer.onmouseup = function() {
+    mouseDown = 0;
+  };
+  maincontainer.onmouseleave = function() {
     mouseDown = 0;
   };
   //
